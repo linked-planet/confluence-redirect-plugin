@@ -22,5 +22,8 @@ package com.linktime.confluence.redirect.api
 interface PluginComponent {
     companion object {
         const val name: String = "Redirect for Confluence"
+        const val GROUP_ID = "com.linktime"
+        const val ARTIFACT_ID = "confluence-redirect-plugin"
+        const val PLUGIN_ID = "$GROUP_ID.$ARTIFACT_ID"
     }
 }

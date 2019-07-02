@@ -22,18 +22,54 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <!--the param adds configure button to the plugin inside the add-on manager-->
+        <param name="configure.url">/admin/plugins/${project.artifactId}/configurePlugin.action</param>
     </plugin-info>
 
     <resource type="i18n" name="i18n" location="i18n/plugin"/>
 
+
+    <!-- ################################################################## -->
+    <!-- SECTIONS -->
+    <!-- ################################################################## -->
+    <web-section key="${project.groupId}.${project.artifactId}.plugin-admin-section"
+                 location="system.admin" weight="-1000">
+        <label>Redirect for Confluence</label>
+    </web-section>
+
+    <web-item key="${project.groupId}.${project.artifactId}.plugin-config-item"
+              section="system.admin/${project.groupId}.${project.artifactId}.plugin-admin-section"
+              weight="1">
+        <label>Redirect Configuration</label>
+        <link>/admin/plugins/${project.artifactId}/configurePlugin.action</link>
+    </web-item>
+
+
     <!-- ################################################################## -->
     <!-- ACTIONS -->
     <!-- ################################################################## -->
-    <xwork key="com.linktime.confluence.redirect.redirect-action">
+    <xwork key="${project.groupId}.${project.artifactId}.redirect-action">
         <package name="redirect-action" extends="default" namespace="/plugins/${project.artifactId}">
             <default-interceptor-ref name="validatingStack"/>
             <action name="redirect" class="com.linktime.confluence.redirect.impl.RedirectAction">
                 <result name="success" type="velocity">/templates/action/redirect-input.vm</result>
+            </action>
+        </package>
+    </xwork>
+
+    <xwork key="${project.groupId}.${project.artifactId}.admin-action">
+        <package name="webwork" extends="default" namespace="/admin/plugins/${project.artifactId}">
+            <default-interceptor-ref name="defaultStack"/>
+            <action name="configurePlugin"
+                    class="com.linktime.confluence.redirect.impl.PluginConfigAction"
+                    method="doDefault">
+                <result name="input" type="velocity">/templates/action/plugin-config-input.vm</result>
+            </action>
+            <action name="configurePlugin-execute"
+                    class="com.linktime.confluence.redirect.impl.PluginConfigAction"
+                    method="execute">
+                <result name="input" type="velocity">/templates/action/plugin-config-input.vm</result>
+                <result name="success" type="redirect">/admin/plugins/${project.artifactId}/configurePlugin.action</result>
             </action>
         </package>
     </xwork>

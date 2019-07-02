@@ -1,0 +1,48 @@
+#* @vtlvariable name="req" type="javax.servlet.http.HttpServletRequest" *#
+#* @vtlvariable name="action" type="com.linktime.confluence.redirect.impl.PluginConfigAction" *#
+
+<html>
+<head>
+    <title>Redirect for Confluence - Redirect Configuration</title>
+</head>
+
+<body>
+<content tag="selectedWebItem" hidden>com.linktime.confluence-redirect-plugin.plugin-config-item</content>
+
+<form class="aui" method="POST"
+      action="$req.contextPath/admin/plugins/confluence-redirect-plugin/configurePlugin-execute.action">
+    #parse("/template/includes/actionerrors.vm")
+
+    #macro(input $id $label $css $currentValue $validationAttributes $attributes)
+    #* @vtlvariable name="validationAttributes" type="java.lang.String" *#
+    #* @vtlvariable name="attributes" type="java.lang.String" *#
+        <div class="field-group">
+            <label for="$id">$label
+                #if ($validationAttributes.contains("required"))
+                    <span class="aui-icon icon-required">(required)</span>
+                #end
+            </label>
+            <input class="text $css" name="$id" id="$id" value="$currentValue" $validationAttributes $attributes />
+        #* @vtlvariable name="fieldErrors" type="java.util.Map<java.lang.String, java.lang.Iterable<java.lang.String>>" *#
+            #set($fieldErrors = $action.getFieldErrors())
+            #if ($fieldErrors)
+                #if ($fieldErrors.get("$id"))
+                    #foreach ($error in $fieldErrors.get("$id"))
+                        <div class="error">$error</div>
+                    #end
+                #end
+            #end
+        </div>
+    #end
+
+#* @vtlvariable name="targetUrl" type="java.lang.String" *#
+    #input("targetUrl" "Target URL" "long-field" $targetUrl "data-aui-validation-field required" "")
+
+    <div class="buttons-container">
+        <button class="aui-button aui-button-primary">Save</button>
+        <button class="aui-button aui-button-link" type="reset">Cancel</button>
+    </div>
+</form>
+
+</body>
+</html>
