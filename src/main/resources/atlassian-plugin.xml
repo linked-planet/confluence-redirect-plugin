@@ -53,6 +53,7 @@
             <default-interceptor-ref name="validatingStack"/>
             <action name="redirect" class="com.linktime.confluence.redirect.impl.RedirectAction">
                 <result name="success" type="velocity">/templates/action/redirect-input.vm</result>
+                <result name="error" type="velocity">/templates/action/redirect-error.vm</result>
             </action>
         </package>
     </xwork>

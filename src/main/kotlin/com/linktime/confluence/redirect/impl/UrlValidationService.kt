@@ -19,17 +19,11 @@
  */
 package com.linktime.confluence.redirect.impl
 
-import com.atlassian.confluence.core.ConfluenceActionSupport
+import org.apache.commons.validator.routines.UrlValidator
+import javax.inject.Named
 
-class RedirectAction : ConfluenceActionSupport() {
-
-    @Suppress("MemberVisibilityCanBePrivate") // velocity
-    lateinit var url: String
-
-    override fun execute(): String {
-        // TODO config
-        url = "http://localhost:8080"
-        return "success"
-    }
-
+@Named
+class UrlValidationService {
+    fun isValid(url: String): Boolean =
+            UrlValidator(UrlValidator.ALLOW_LOCAL_URLS).isValid(url)
 }
