@@ -22,6 +22,8 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="vendor-logo">images/link-time-vendor-logo.png</param>
+        <param name="plugin-icon">images/link-time-plugin-logo.png</param>
         <!--the param adds configure button to the plugin inside the add-on manager-->
         <param name="configure.url">/admin/plugins/${project.artifactId}/configurePlugin.action</param>
     </plugin-info>
