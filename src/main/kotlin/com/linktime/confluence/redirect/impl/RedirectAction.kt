@@ -19,8 +19,17 @@
  */
 package com.linktime.confluence.redirect.impl
 
-import com.linktime.confluence.redirect.api.PluginComponent
-import javax.inject.Named
+import com.atlassian.confluence.core.ConfluenceActionSupport
 
-@Named
-class PluginComponentImpl : PluginComponent
+class RedirectAction : ConfluenceActionSupport() {
+
+    @Suppress("MemberVisibilityCanBePrivate") // velocity
+    lateinit var url: String
+
+    override fun execute(): String {
+        // TODO config
+        url = "http://localhost:8080"
+        return "success"
+    }
+
+}

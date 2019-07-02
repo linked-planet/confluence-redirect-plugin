@@ -21,9 +21,21 @@
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
     </plugin-info>
 
     <resource type="i18n" name="i18n" location="i18n/plugin"/>
+
+    <!-- ################################################################## -->
+    <!-- ACTIONS -->
+    <!-- ################################################################## -->
+    <xwork key="com.linktime.confluence.redirect.redirect-action">
+        <package name="redirect-action" extends="default" namespace="/plugins/${project.artifactId}">
+            <default-interceptor-ref name="validatingStack"/>
+            <action name="redirect" class="com.linktime.confluence.redirect.impl.RedirectAction">
+                <result name="success" type="velocity">/templates/action/redirect-input.vm</result>
+            </action>
+        </package>
+    </xwork>
 
 </atlassian-plugin>

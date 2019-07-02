@@ -1,0 +1,6 @@
+#* @vtlvariable name="action" type="com.linktime.confluence.redirect.impl.RedirectAction" *#
+
+<script type="text/javascript">
+    var target = '$action.getUrl()';
+    window.location.href = target + window.location.search
+</script>
