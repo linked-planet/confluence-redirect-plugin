@@ -33,7 +33,7 @@
     <!-- SECTIONS -->
     <!-- ################################################################## -->
     <web-section key="${project.groupId}.${project.artifactId}.plugin-admin-section"
-                 location="system.admin" weight="-1000">
+                 location="system.admin" weight="1000">
         <label>Redirect for Confluence</label>
     </web-section>
 
