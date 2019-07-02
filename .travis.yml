@@ -12,3 +12,5 @@ before_install:
   - atlas-version
 install:
   - atlas-mvn install
+test:
+  - atlas-mvn test
