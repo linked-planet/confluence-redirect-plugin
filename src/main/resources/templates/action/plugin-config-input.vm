@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<content tag="selectedWebItem" hidden>com.linktime.confluence-redirect-plugin.plugin-config-item</content>
+<content tag="selectedWebItem" hidden>com.linktime.confluence.confluence-redirect-plugin.plugin-config-item</content>
 
 <form class="aui" method="POST"
       action="$req.contextPath/admin/plugins/confluence-redirect-plugin/configurePlugin-execute.action">
