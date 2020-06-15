@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.linked-planed.confluence</groupId>
+    <groupId>com.linked-planet.confluence</groupId>
     <artifactId>confluence-redirect-plugin</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
@@ -278,7 +278,7 @@
 
             <!-- UPM -->
             <plugin>
-                <groupId>com.linked-planet.maven.plugin.atlassian</groupId>
+                <groupId>com.link-time.maven.plugin.atlassian</groupId>
                 <artifactId>upm-maven-plugin</artifactId>
                 <version>1.0.2</version>
                 <configuration>
@@ -299,13 +299,6 @@
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
-            <repositories>
-                <repository>
-                    <id>spring-plugins</id>
-                    <name>Spring Plugins repository</name>
-                    <url>http://repo.spring.io/plugins-release</url>
-                </repository>
-            </repositories>
             <build>
                 <plugins>
                     <!-- KDOC -->
@@ -330,8 +323,8 @@
                     <!-- SOURCES -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.5.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -346,6 +339,72 @@
         </profile>
     </profiles>
 
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>spring-plugins</id>
+            <name>Spring Plugins repository</name>
+            <url>https://repo.spring.io/plugins-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>riada-repository</id>
+            <url>https://repo.riada.io/repository/riada-repo/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <scm>
         <!-- change of SCM should be possible without change of pom.xml -->
