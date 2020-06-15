@@ -1,4 +1,4 @@
-#* @vtlvariable name="action" type="com.linktime.confluence.redirect.impl.RedirectAction" *#
+#* @vtlvariable name="action" type="com.linkedplanet.confluence.redirect.impl.RedirectAction" *#
 
 <script type="text/javascript">
     var target = '$action.getUrl()';

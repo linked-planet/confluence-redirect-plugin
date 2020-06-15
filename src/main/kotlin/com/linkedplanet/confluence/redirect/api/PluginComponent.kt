@@ -1,8 +1,3 @@
-/**
- * Contains Java classes we are forced to use instead of Kotlin in some scenarios.
- */
-package com.linktime.confluence.redirect.impl;
-
 /*-
  * #%L
  * confluence-redirect-plugin
@@ -22,3 +17,13 @@ package com.linktime.confluence.redirect.impl;
  * limitations under the License.
  * #L%
  */
+package com.linkedplanet.confluence.redirect.api
+
+interface PluginComponent {
+    companion object {
+        const val name: String = "Redirect for Confluence"
+        const val GROUP_ID = "com.linkedplanet.confluence"
+        const val ARTIFACT_ID = "confluence-redirect-plugin"
+        const val PLUGIN_ID = "$GROUP_ID.$ARTIFACT_ID"
+    }
+}

@@ -1,4 +1,4 @@
-package com.linktime.confluence.redirect.impl;
+package com.linkedplanet.confluence.redirect.impl;
 
 /*-
  * #%L

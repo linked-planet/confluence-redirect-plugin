@@ -1,3 +1,8 @@
+/**
+ * Contains Java classes we are forced to use instead of Kotlin in some scenarios.
+ */
+package com.linkedplanet.confluence.redirect.impl;
+
 /*-
  * #%L
  * confluence-redirect-plugin
@@ -17,13 +22,3 @@
  * limitations under the License.
  * #L%
  */
-package com.linktime.confluence.redirect.impl
-
-import org.apache.commons.validator.routines.UrlValidator
-import javax.inject.Named
-
-@Named
-class UrlValidationService {
-    fun isValid(url: String): Boolean =
-            UrlValidator(UrlValidator.ALLOW_LOCAL_URLS).isValid(url)
-}
