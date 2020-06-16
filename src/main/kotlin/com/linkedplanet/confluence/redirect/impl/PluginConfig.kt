@@ -17,12 +17,12 @@
  * limitations under the License.
  * #L%
  */
-package com.linkedplanet.confluence.redirect.impl
+package com.linkedplanet.plugin.confluence.redirect.impl
 
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport
 import com.atlassian.sal.api.pluginsettings.PluginSettings
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory
-import com.linkedplanet.confluence.redirect.api.PluginComponent.Companion.PLUGIN_ID
+import com.linkedplanet.plugin.confluence.redirect.api.PluginComponent.Companion.PLUGIN_ID
 import javax.inject.Inject
 import javax.inject.Named
 

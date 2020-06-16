@@ -5,12 +5,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.linked-planet.confluence</groupId>
-    <artifactId>confluence-redirect-plugin</artifactId>
+    <groupId>com.linked-planet.plugin.confluence</groupId>
+    <artifactId>redirect</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <organization>
-        <name>linked-planet GmbH</name>
+        <name>Linked-Planet GmbH</name>
         <url>https://www.linked-planet.com</url>
     </organization>
 
@@ -182,7 +182,7 @@
                     <instructions>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
                         <Export-Package>
-                            com.linkedplanet.confluence.redirect.api,
+                            com.linkedplanet.plugin.confluence.redirect.api,
                         </Export-Package>
                         <Import-Package>
                             *

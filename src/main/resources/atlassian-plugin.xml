@@ -53,7 +53,7 @@
     <xwork key="${project.groupId}.${project.artifactId}.redirect-action">
         <package name="redirect-action" extends="default" namespace="/plugins/${project.artifactId}">
             <default-interceptor-ref name="validatingStack"/>
-            <action name="redirect" class="com.linkedplanet.confluence.redirect.impl.RedirectAction">
+            <action name="redirect" class="com.linkedplanet.plugin.confluence.redirect.impl.RedirectAction">
                 <result name="success" type="velocity">/templates/action/redirect-input.vm</result>
                 <result name="error" type="velocity">/templates/action/redirect-error.vm</result>
             </action>
@@ -64,12 +64,12 @@
         <package name="webwork" extends="default" namespace="/admin/plugins/${project.artifactId}">
             <default-interceptor-ref name="defaultStack"/>
             <action name="configurePlugin"
-                    class="com.linkedplanet.confluence.redirect.impl.PluginConfigAction"
+                    class="com.linkedplanet.plugin.confluence.redirect.impl.PluginConfigAction"
                     method="doDefault">
                 <result name="input" type="velocity">/templates/action/plugin-config-input.vm</result>
             </action>
             <action name="configurePlugin-execute"
-                    class="com.linkedplanet.confluence.redirect.impl.PluginConfigAction"
+                    class="com.linktime.plugin.confluence.redirect.impl.PluginConfigAction"
                     method="execute">
                 <result name="input" type="velocity">/templates/action/plugin-config-input.vm</result>
                 <result name="success" type="redirect">/admin/plugins/${project.artifactId}/configurePlugin.action</result>

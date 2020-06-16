@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package com.linkedplanet.confluence.redirect.impl
+package com.linkedplanet.plugin.confluence.redirect.impl
 
 import org.apache.commons.validator.routines.UrlValidator
 import javax.inject.Named

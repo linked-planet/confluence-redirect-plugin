@@ -17,7 +17,7 @@
  * limitations under the License.
  * #L%
  */
-package com.linkedplanet.confluence.redirect.impl;
+package com.linkedplanet.plugin.confluence.redirect.impl;
 
 import com.atlassian.confluence.core.ConfluenceActionSupport;
 import com.opensymphony.xwork.Action;
