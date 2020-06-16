@@ -10,7 +10,7 @@
 <content tag="selectedWebItem" hidden>com.linkedplanet.plugin.confluence.redirect.plugin-config-item</content>
 
 <form class="aui" method="POST"
-      action="$req.contextPath/admin/plugins/confluence-redirect-plugin/configurePlugin-execute.action">
+      action="$req.contextPath/admin/plugins/redirect/configurePlugin-execute.action">
     #parse("/template/includes/actionerrors.vm")
 
     #macro(input $id $label $css $currentValue $validationAttributes $attributes)
