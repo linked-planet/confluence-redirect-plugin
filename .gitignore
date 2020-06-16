@@ -20,6 +20,9 @@ buildNumber.properties
 .mvn/timing.properties
 !/.mvn/wrapper/maven-wrapper.jar
 
+.project
+.settings
+.classpath
 # ----------------------------------
 # App-specific
 # ----------------------------------
