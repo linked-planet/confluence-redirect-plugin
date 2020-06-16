@@ -59,6 +59,17 @@
             </action>
         </package>
     </xwork>
+    <!-- TODO Remove once RKB is patched to use the new path -->
+    <xwork key="${project.groupId}.${project.artifactId}.redirect-action">
+        <package name="redirect-action" extends="default" namespace="/plugins/confluence-${project.artifactId}-plugin">
+            <default-interceptor-ref name="validatingStack"/>
+            <action name="redirect" class="com.linkedplanet.plugin.confluence.redirect.impl.RedirectAction">
+                <result name="success" type="velocity">/templates/action/redirect-input.vm</result>
+                <result name="error" type="velocity">/templates/action/redirect-error.vm</result>
+            </action>
+        </package>
+    </xwork>
+    <!-- / TODO Remove once RKB is patched to use the new path -->
 
     <xwork key="${project.groupId}.${project.artifactId}.admin-action">
         <package name="webwork" extends="default" namespace="/admin/plugins/${project.artifactId}">
