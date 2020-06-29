@@ -41,6 +41,11 @@
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
         <developer.connection>scm:git:https://github.com/linked-planet/confluence-redirect-plugin.git</developer.connection>
+
+        <!-- Deployment properties intended to be set via command line -->
+        <deploy.url>_</deploy.url>
+        <deploy.username>_</deploy.username>
+        <deploy.password>_</deploy.password>
     </properties>
 
 
