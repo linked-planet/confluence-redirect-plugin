@@ -26,8 +26,8 @@
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <atlassian.spring.scanner.version>2.1.5</atlassian.spring.scanner.version>
 
-        <confluence.version>6.9.0</confluence.version>
-        <confluence.data.version>6.9.0</confluence.data.version>
+        <confluence.version>6.15.4</confluence.version>
+        <confluence.data.version>6.15.4</confluence.data.version>
 
         <amps.version>8.0.2</amps.version>
 
