@@ -29,7 +29,7 @@
         <confluence.version>6.9.0</confluence.version>
         <confluence.data.version>6.9.0</confluence.data.version>
 
-        <amps.version>8.0.0</amps.version>
+        <amps.version>8.0.2</amps.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
