@@ -5,13 +5,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.linktime.confluence</groupId>
-    <artifactId>confluence-redirect-plugin</artifactId>
+    <groupId>com.linked-planet.plugin.confluence</groupId>
+    <artifactId>redirect</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
     <organization>
-        <name>link-time GmbH</name>
-        <url>https://link-time.com</url>
+        <name>linked-planet GmbH</name>
+        <url>https://linked-planet.com/</url>
     </organization>
 
     <name>Redirect for Confluence</name>
@@ -26,10 +26,10 @@
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <atlassian.spring.scanner.version>2.1.5</atlassian.spring.scanner.version>
 
-        <confluence.version>6.9.0</confluence.version>
-        <confluence.data.version>6.9.0</confluence.data.version>
+        <confluence.version>6.15.4</confluence.version>
+        <confluence.data.version>6.15.4</confluence.data.version>
 
-        <amps.version>8.0.0</amps.version>
+        <amps.version>8.0.2</amps.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -37,10 +37,15 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <kotlin.version>1.3.31</kotlin.version>
+        <kotlin.version>1.3.72</kotlin.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-        <developer.connection>scm:git:https://github.com/link-time/confluence-redirect-plugin.git</developer.connection>
+        <developer.connection>scm:git:https://github.com/linked-planet/confluence-redirect-plugin.git</developer.connection>
+
+        <!-- Deployment properties intended to be set via command line -->
+        <deploy.url>_</deploy.url>
+        <deploy.username>_</deploy.username>
+        <deploy.password>_</deploy.password>
     </properties>
 
 
@@ -107,6 +112,30 @@
                             <sources>
                                 <source>src/main/kotlin</source>
                             </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Clean Maven directories that get corrupted when rebuilding the project with IntelliJ
+             or on successive Maven builds -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <delete failonerror="false">
+                                    <fileset dir="${project.build.directory}/dependency-maven-plugin-markers"/>
+                                    <fileset dir="${project.build.directory}/classes"/>
+                                </delete>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
@@ -182,7 +211,7 @@
                     <instructions>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
                         <Export-Package>
-                            com.linktime.confluence.redirect.api,
+                            com.linkedplanet.plugin.confluence.redirect.api,
                         </Export-Package>
                         <Import-Package>
                             *
@@ -299,13 +328,6 @@
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
-            <repositories>
-                <repository>
-                    <id>spring-plugins</id>
-                    <name>Spring Plugins repository</name>
-                    <url>http://repo.spring.io/plugins-release</url>
-                </repository>
-            </repositories>
             <build>
                 <plugins>
                     <!-- KDOC -->
@@ -346,6 +368,72 @@
         </profile>
     </profiles>
 
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>spring-plugins</id>
+            <name>Spring Plugins repository</name>
+            <url>https://repo.spring.io/plugins-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>riada-repository</id>
+            <url>https://repo.riada.io/repository/riada-repo/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <scm>
         <!-- change of SCM should be possible without change of pom.xml -->
@@ -353,5 +441,17 @@
         <tag>HEAD</tag>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>artifactory.release</id>
+            <name>Artifactory Release</name>
+            <url>https://artifactory.link-time.org/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>artifactory.snapshot</id>
+            <name>Artifactory Snapshot</name>
+            <url>https://artifactory.link-time.org/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

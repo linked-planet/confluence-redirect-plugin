@@ -17,13 +17,13 @@
  * limitations under the License.
  * #L%
  */
-package com.linktime.confluence.redirect.impl
+package com.linkedplanet.plugin.confluence.redirect.api
 
-import org.apache.commons.validator.routines.UrlValidator
-import javax.inject.Named
-
-@Named
-class UrlValidationService {
-    fun isValid(url: String): Boolean =
-            UrlValidator(UrlValidator.ALLOW_LOCAL_URLS).isValid(url)
+interface PluginComponent {
+    companion object {
+        const val name: String = "Redirect for Confluence"
+        const val GROUP_ID = "com.linked-planet.plugin.confluence"
+        const val ARTIFACT_ID = "redirect"
+        const val PLUGIN_ID = "$GROUP_ID.$ARTIFACT_ID"
+    }
 }

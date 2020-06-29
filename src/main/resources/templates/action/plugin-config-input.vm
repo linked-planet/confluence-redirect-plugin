@@ -1,5 +1,5 @@
 #* @vtlvariable name="req" type="javax.servlet.http.HttpServletRequest" *#
-#* @vtlvariable name="action" type="com.linktime.confluence.redirect.impl.PluginConfigAction" *#
+#* @vtlvariable name="action" type="com.linkedplanet.plugin.confluence.redirect.impl.PluginConfigAction" *#
 
 <html>
 <head>
@@ -7,10 +7,10 @@
 </head>
 
 <body>
-<content tag="selectedWebItem" hidden>com.linktime.confluence.confluence-redirect-plugin.plugin-config-item</content>
+<content tag="selectedWebItem" hidden>com.linkedplanet.plugin.confluence.redirect.plugin-config-item</content>
 
 <form class="aui" method="POST"
-      action="$req.contextPath/admin/plugins/confluence-redirect-plugin/configurePlugin-execute.action">
+      action="$req.contextPath/admin/plugins/redirect/configurePlugin-execute.action">
     #parse("/template/includes/actionerrors.vm")
 
     #macro(input $id $label $css $currentValue $validationAttributes $attributes)

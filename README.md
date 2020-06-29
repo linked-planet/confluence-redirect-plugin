@@ -1,4 +1,6 @@
 # Redirect for Confluence
+![Build](https://github.com/linked-planet/confluence-redirect-plugin/workflows/Maven/badge.svg)
+
 This plugin provides an endpoint that - when called - will redirect the user
 to a configurable URL.
 

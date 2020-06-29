@@ -17,10 +17,10 @@
  * limitations under the License.
  * #L%
  */
-package com.linktime.confluence.redirect
+package com.linkedplanet.plugin.confluence.redirect
 
 import org.junit.Test
-import com.linktime.confluence.redirect.api.PluginComponent
+import com.linkedplanet.plugin.confluence.redirect.api.PluginComponent
 
 import org.junit.Assert.assertEquals
 
